@@ -1,0 +1,165 @@
+/**
+ * SideBar – Stargate Design System
+ * Figma: Stargate Components → Side Bar (State=Default)
+ * width: 352px, height: 800px, bg: white
+ * Header: gradient white→transparent, pl-32 pr-16 py-14
+ * New report button: at top of content area, full width
+ * List items: py-16, body/m, active item has subtle bg highlight
+ */
+
+.sidebar {
+  position: relative;
+  width: 352px;
+  height: 800px;
+  background-color: var(--background-primary);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px var(--space-16) 14px var(--space-32);
+  height: 72px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--background-primary) 0%,
+    var(--background-primary) 80%,
+    transparent 100%
+  );
+  position: relative;
+  z-index: 1;
+}
+
+.logoText {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.headerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-l);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--content-primary);
+  transition: background-color var(--transition-base);
+}
+
+.headerBtn:hover {
+  background-color: var(--background-secondary);
+}
+
+.languageText {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--content-primary);
+}
+
+/* ── New Report ── */
+.newReportRow {
+  padding: 0 var(--space-32);
+  padding-bottom: var(--space-16);
+  flex-shrink: 0;
+}
+
+/* ── List ── */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--space-32);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.listItem {
+  position: relative;
+  display: flex;
+  gap: var(--space-16);
+  align-items: flex-start;
+  min-height: 60px;
+  padding: var(--space-16) 0;
+  cursor: pointer;
+  border-radius: var(--radius-m);
+}
+
+.listItem::before {
+  content: '';
+  position: absolute;
+  inset: 0 -12px;
+  border-radius: var(--radius-m);
+  transition: background-color var(--transition-base);
+}
+
+.listItem:hover::before {
+  background-color: var(--background-secondary);
+}
+
+.listItemActive::before {
+  background-color: var(--background-secondary);
+}
+
+.listItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.listItemTitle {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.listItemMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-4);
+  align-items: center;
+  height: var(--line-height-body-m);
+}
+
+.metaText {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-secondary);
+}
+
+.metaDot {
+  font-family: var(--font-family);
+  font-size: var(--size-body-m);
+  color: var(--content-secondary);
+}

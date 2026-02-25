@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(node -e:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(/Users/phbelov/Development/design-system-test/src/components/Button/Button.module.css:*)",
+      "WebFetch(domain:carbondesignsystem.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(curl:*)",
+      "Bash(env:*)",
+      "Bash(sort:*)",
+      "Bash(__NEW_LINE_c4b59a478fae2ff0__ grep -oE '\\(section|frame\\) id=\\\\\\\\\"\"[0-9]+:[0-9]+\\\\\\\\\"\" name=\\\\\\\\\"\"[^\"\"\\\\\\\\]*[Nn]av[^\"\"\\\\\\\\]*\\\\\\\\\"\"' /Users/phbelov/.claude/projects/-Users-phbelov-Development-design-system-test/23b517e5-8112-41db-a2c4-3f87e8559de4.jsonl)",
+      "Bash(grep:*)",
+      "Bash(npx storybook build:*)",
+      "Bash(/usr/bin/git status --short)",
+      "Bash(git --version:*)",
+      "Bash(gh auth status:*)",
+      "Bash(brew list:*)",
+      "Bash(sudo xcodebuild:*)",
+      "Bash(export GIT_EXEC_PATH=\"\")",
+      "Bash(/usr/bin/git -c core.gitProxy=none status)",
+      "Bash(brew install:*)",
+      "Bash(/opt/homebrew/bin/brew install:*)",
+      "Bash(npm --version:*)",
+      "Bash(sh)",
+      "Bash(sudo chown:*)",
+      "Bash(export PATH=\"$HOME/.local/bin:$PATH\")",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

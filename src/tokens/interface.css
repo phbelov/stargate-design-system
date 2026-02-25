@@ -1,0 +1,171 @@
+/**
+ * Stargate Design System — Interface Collection
+ *
+ * Semantic tokens that map to Base collection primitives via var().
+ * Light and Dark modes reference DIFFERENT Base variables — the Base collection
+ * provides raw colours while Interface does the semantic light/dark swap.
+ *
+ * Modes: light · dark
+ * Switch via: data-interface-mode="<mode>" on an ancestor element.
+ *
+ * Also contains mode-independent tokens: border-radius, spacing, transitions.
+ */
+
+/* ================================================================
+   INTERFACE – LIGHT (default)
+   ================================================================ */
+:root,
+[data-interface-mode="light"] {
+  /* ── Background ── */
+  --background-primary:             var(--base-white);
+  --background-secondary-plain:     var(--base-grey-100);
+  --background-secondary:           var(--base-charcoal-8);
+  --background-tertiary:            var(--base-charcoal-4);
+  --background-secondary-brand:     var(--base-brand-24);
+  --background-status-negative:     var(--base-red);
+  --background-status-positive:     var(--base-green);
+  --background-status-warning:      var(--base-orange);
+  --background-status-neutral:      var(--base-charcoal-100);
+
+  /* ── Content (text / icon colours) ── */
+  --content-primary:                var(--base-charcoal-100);
+  --content-secondary:              var(--base-charcoal-60);
+  --content-tertiary:               var(--base-charcoal-24);
+  --content-disabled:               var(--base-charcoal-16);
+  --content-inverted-primary:       var(--base-grey-100);
+  --content-inverted-secondary:     var(--base-grey-48);
+  --content-inverted-tertiary:      var(--base-grey-12);
+  --content-static-primary:         var(--base-charcoal-100);
+  --content-static-inverted-primary: var(--base-grey-100);
+  --content-status-negative:        var(--base-red);
+  --content-status-positive:        var(--base-green);
+  --content-status-warning:         var(--base-orange);
+
+  /* ── Interactive – Filled ── */
+  --interactive-filled-primary-default:        var(--base-charcoal-100);
+  --interactive-filled-primary-hover:          #1a1a1a;
+  --interactive-filled-primary-pressed:        #0d0d0d;
+  --interactive-filled-primary-brand-default:  var(--base-brand-100);
+  --interactive-filled-primary-brand-hover:    var(--base-brand-light-100);
+  --interactive-filled-primary-brand-pressed:  var(--base-brand-light-100);
+  --interactive-filled-secondary-default:      var(--base-charcoal-8);
+  --interactive-filled-secondary-hover:        var(--base-charcoal-16);
+  --interactive-filled-secondary-pressed:      var(--base-charcoal-16);
+  --interactive-filled-tertiary-hover:         var(--base-charcoal-8);
+  --interactive-filled-tertiary-pressed:       var(--base-charcoal-8);
+  --interactive-filled-secondary-alt-default:  var(--base-white);
+  --interactive-filled-secondary-alt-hover:    rgba(255, 255, 255, 0.48);
+  --interactive-filled-secondary-alt-pressed:  rgba(255, 255, 255, 0.48);
+  --interactive-filled-destructive-default:    var(--base-red);
+  --interactive-filled-destructive-hover:      #9e1e17;
+  --interactive-filled-destructive-pressed:    #881a13;
+
+  /* ── Interactive – Outlined ── */
+  --interactive-outlined-default:  var(--base-charcoal-24);
+  --interactive-outlined-hover:    var(--base-charcoal-32);
+  --interactive-outlined-pressed:  var(--base-charcoal-32);
+  --interactive-outlined-focus:    var(--base-charcoal-100);
+
+  /* ── Interactive – Disabled ── */
+  --interactive-disabled:          var(--base-charcoal-8);
+}
+
+/* ================================================================
+   INTERFACE – DARK
+   Swaps semantic mapping: Charcoal ↔ Grey for content/interactive,
+   White ↔ Black for surfaces.
+   ================================================================ */
+[data-interface-mode="dark"] {
+  /* ── Background ── */
+  --background-primary:             var(--base-black);
+  --background-secondary-plain:     var(--base-charcoal-100);
+  --background-secondary:           var(--base-grey-8);
+  --background-tertiary:            var(--base-grey-4);
+  --background-secondary-brand:     var(--base-brand-24);
+  --background-status-negative:     var(--base-red);
+  --background-status-positive:     var(--base-green);
+  --background-status-warning:      var(--base-orange);
+  --background-status-neutral:      var(--base-grey-100);
+
+  /* ── Content ── */
+  --content-primary:                var(--base-grey-100);
+  --content-secondary:              var(--base-grey-48);
+  --content-tertiary:               var(--base-grey-20);
+  --content-disabled:               var(--base-grey-12);
+  --content-inverted-primary:       var(--base-charcoal-100);
+  --content-inverted-secondary:     var(--base-charcoal-60);
+  --content-inverted-tertiary:      var(--base-charcoal-24);
+  --content-static-primary:         var(--base-charcoal-100);
+  --content-static-inverted-primary: var(--base-grey-100);
+  --content-status-negative:        var(--base-red);
+  --content-status-positive:        var(--base-green);
+  --content-status-warning:         var(--base-orange);
+
+  /* ── Interactive – Filled ── */
+  --interactive-filled-primary-default:        var(--base-grey-100);
+  --interactive-filled-primary-hover:          #d4d4d4;
+  --interactive-filled-primary-pressed:        #c0c0c0;
+  --interactive-filled-primary-brand-default:  var(--base-brand-100);
+  --interactive-filled-primary-brand-hover:    var(--base-brand-light-100);
+  --interactive-filled-primary-brand-pressed:  var(--base-brand-light-100);
+  --interactive-filled-secondary-default:      var(--base-grey-8);
+  --interactive-filled-secondary-hover:        var(--base-grey-12);
+  --interactive-filled-secondary-pressed:      var(--base-grey-12);
+  --interactive-filled-tertiary-hover:         var(--base-grey-8);
+  --interactive-filled-tertiary-pressed:       var(--base-grey-8);
+  --interactive-filled-secondary-alt-default:  var(--base-black);
+  --interactive-filled-secondary-alt-hover:    rgba(18, 18, 18, 0.48);
+  --interactive-filled-secondary-alt-pressed:  rgba(18, 18, 18, 0.48);
+  --interactive-filled-destructive-default:    var(--base-red);
+  --interactive-filled-destructive-hover:      #9e1e17;
+  --interactive-filled-destructive-pressed:    #881a13;
+
+  /* ── Interactive – Outlined ── */
+  --interactive-outlined-default:  var(--base-grey-12);
+  --interactive-outlined-hover:    var(--base-grey-20);
+  --interactive-outlined-pressed:  var(--base-grey-20);
+  --interactive-outlined-focus:    var(--base-grey-100);
+
+  /* ── Interactive – Disabled ── */
+  --interactive-disabled:          var(--base-grey-8);
+}
+
+/* ================================================================
+   MODE-INDEPENDENT TOKENS
+   These don't change between light/dark modes.
+   ================================================================ */
+
+/* ── Border Radius ── */
+:root {
+  --radius-xxs:      4px;
+  --radius-xs:       8px;
+  --radius-s:        12px;
+  --radius-m:        16px;
+  --radius-l:        24px;
+  --radius-xl:       32px;
+  --radius-infinite: 9999px;
+}
+
+/* ── Spacing ── */
+:root {
+  --space-2:  2px;
+  --space-4:  4px;
+  --space-6:  6px;
+  --space-8:  8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+}
+
+/* ── Transition ── */
+:root {
+  --transition-fast:   0.1s ease;
+  --transition-base:   0.15s ease;
+  --transition-slow:   0.25s ease;
+}

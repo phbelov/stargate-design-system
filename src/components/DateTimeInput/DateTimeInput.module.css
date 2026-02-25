@@ -1,0 +1,108 @@
+/**
+ * DateTimeInput – Stargate Design System
+ * Figma: Stargate Components → Date and Time Input
+ * Matches TextField visual style:
+ *   bg: white, border: 2px solid --interactive-outlined-default
+ *   border-radius: --radius-s (12px), pl: 16px, pr: 8px, py: 16px, height: 60px
+ */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+/* ── Label ── */
+.label {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-s);
+  line-height: var(--line-height-body-s);
+  letter-spacing: var(--letter-spacing-body-s);
+  color: var(--content-secondary);
+}
+
+/* ── Field container ── */
+.field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  background-color: var(--background-primary);
+  border: 2px solid var(--interactive-outlined-default);
+  border-radius: var(--radius-s);
+  padding: var(--space-16) var(--space-8) var(--space-16) var(--space-16);
+  min-height: 60px;
+  transition: border-color var(--transition-base);
+  cursor: text;
+}
+
+.field:focus-within {
+  border-color: var(--interactive-outlined-focus);
+}
+
+.field:hover:not(:focus-within) {
+  border-color: var(--interactive-outlined-hover);
+}
+
+/* ── State: Error ── */
+.error {
+  border-color: var(--background-status-negative);
+}
+
+/* ── State: Disabled ── */
+.disabled {
+  background-color: var(--background-secondary);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Icon ── */
+.icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--content-secondary);
+}
+
+.iconSvg {
+  display: block;
+}
+
+/* ── Native input ── */
+.input {
+  flex: 1;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+  min-width: 0;
+}
+
+.input::placeholder {
+  color: var(--content-secondary);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  color: var(--content-secondary);
+}
+
+/* ── Caption ── */
+.caption {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-s);
+  line-height: var(--line-height-body-s);
+  letter-spacing: var(--letter-spacing-body-s);
+  color: var(--content-secondary);
+}
+
+.captionError {
+  color: var(--content-status-negative);
+}

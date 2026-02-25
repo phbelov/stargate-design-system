@@ -1,0 +1,279 @@
+/**
+ * Button – Stargate Design System
+ *
+ * Figma: Stargate Components → Buttons section
+ * Priorities: Primary, Primary Brand, Secondary, Secondary Alternative,
+ *             Destructive, Tertiary, Tertiary Underlined,
+ *             Quaternary, Quaternary Underlined
+ * Sizes: M (44px), L (60px)
+ * States: Default, Hover, Pressed, Loading, Disabled
+ */
+
+/* ── Base ─────────────────────────────────────────────────────── */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: var(--radius-infinite);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    opacity var(--transition-base),
+    box-shadow var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(169, 100, 247, 0.4);
+}
+
+/* ── Sizes ────────────────────────────────────────────────────── */
+/* M: height 44px  (from Figma symbol metadata) */
+.sizeM {
+  height: 44px;
+  padding: 0 var(--space-16);
+}
+
+/* L: height 60px  (from Figma symbol metadata) */
+.sizeL {
+  height: 60px;
+  padding: 0 var(--space-20);
+}
+
+/* Icon-only: square button – equal padding so width = height */
+.sizeM.iconOnly {
+  width: 44px;
+  padding: 0;
+}
+
+.sizeL.iconOnly {
+  width: 60px;
+  padding: 0;
+}
+
+/* ── Pill priorities ──────────────────────────────────────────── */
+
+/* Primary (dark / near-black) */
+.primary {
+  background-color: var(--interactive-filled-primary-default);
+  color: var(--content-inverted-primary);
+}
+.primary:hover:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-primary-hover);
+}
+.primary:active:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-primary-pressed);
+}
+
+/* Primary Brand (purple) */
+.primaryBrand {
+  background-color: var(--interactive-filled-primary-brand-default);
+  color: #ffffff;
+}
+.primaryBrand:hover:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-primary-brand-hover);
+}
+.primaryBrand:active:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-primary-brand-pressed);
+}
+
+/* Secondary (subtle grey fill) */
+.secondary {
+  background-color: var(--interactive-filled-secondary-default);
+  color: var(--content-primary);
+}
+.secondary:hover:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-secondary-hover);
+}
+.secondary:active:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-secondary-pressed);
+}
+
+/* Secondary Alternative (white) */
+.secondaryAlternative {
+  background-color: var(--background-primary);
+  color: var(--content-primary);
+}
+.secondaryAlternative:hover:not(.disabled):not(.loading) {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.secondaryAlternative:active:not(.disabled):not(.loading) {
+  background-color: rgba(255, 255, 255, 0.70);
+}
+
+/* Destructive (red) */
+.destructive {
+  background-color: var(--interactive-filled-destructive-default);
+  color: #ffffff;
+}
+.destructive:hover:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-destructive-hover);
+}
+.destructive:active:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-destructive-pressed);
+}
+
+/* ── Text-only priorities (no fill, no border) ────────────────── */
+/* These keep a fixed height so they align in button rows, but have
+   transparent backgrounds and no border-radius pill styling. */
+
+.tertiary,
+.tertiaryUnderlined,
+.quaternary,
+.quaternaryUnderlined {
+  background: transparent;
+  padding: 0 var(--space-8);
+}
+
+/* Tertiary & Quaternary share the same large hover/pressed radius */
+.tertiary,
+.tertiaryUnderlined,
+.quaternary,
+.quaternaryUnderlined {
+  border-radius: var(--radius-l);  /* 24px for M size */
+}
+
+.sizeL.tertiary,
+.sizeL.tertiaryUnderlined,
+.sizeL.quaternary,
+.sizeL.quaternaryUnderlined {
+  border-radius: var(--radius-xl); /* 32px for L size */
+}
+
+/* Tertiary – secondary text colour */
+.tertiary {
+  color: var(--content-secondary);
+}
+.tertiary:hover:not(.disabled):not(.loading) {
+  color: var(--content-primary);
+  background-color: var(--interactive-filled-secondary-default);
+}
+.tertiary:active:not(.disabled):not(.loading) {
+  color: var(--content-primary);
+  background-color: var(--interactive-filled-secondary-hover);
+}
+
+/* Tertiary Underlined */
+.tertiaryUnderlined {
+  color: var(--content-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: currentColor;
+}
+.tertiaryUnderlined:hover:not(.disabled):not(.loading) {
+  color: var(--content-primary);
+  background-color: var(--interactive-filled-secondary-default);
+}
+.tertiaryUnderlined:active:not(.disabled):not(.loading) {
+  color: var(--content-primary);
+  background-color: var(--interactive-filled-secondary-hover);
+}
+
+/* Quaternary – primary text colour */
+.quaternary {
+  color: var(--content-primary);
+}
+.quaternary:hover:not(.disabled):not(.loading) {
+  color: var(--content-secondary);
+  background-color: var(--interactive-filled-secondary-default);
+}
+.quaternary:active:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-secondary-hover);
+}
+
+/* Quaternary Underlined */
+.quaternaryUnderlined {
+  color: var(--content-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: currentColor;
+}
+.quaternaryUnderlined:hover:not(.disabled):not(.loading) {
+  color: var(--content-secondary);
+  background-color: var(--interactive-filled-secondary-default);
+}
+.quaternaryUnderlined:active:not(.disabled):not(.loading) {
+  color: var(--content-secondary);
+  background-color: var(--interactive-filled-secondary-hover);
+}
+
+/* ── States ───────────────────────────────────────────────────── */
+
+/* Disabled – all priorities */
+.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Loading – hide label, show spinner */
+.loading {
+  cursor: default;
+  pointer-events: none;
+}
+
+.labelHidden {
+  visibility: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+/* Spinner positioned over the button centre */
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerRing {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-right-color: currentColor;
+  border-radius: 50%;
+  animation: sg-spin 0.75s linear infinite;
+}
+
+.sizeL .spinnerRing {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes sg-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Inner wrapper + leading icon ── */
+.inner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.leadingIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: inherit;
+}

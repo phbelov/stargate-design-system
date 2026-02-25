@@ -1,0 +1,81 @@
+/**
+ * PrimaryNavigation – Stargate Design System
+ * Figma: Stargate Components → Primary Navigation (With Background=True)
+ * width: 1440px, height: 72px, pl: 32px, pr: 16px, py: 14px
+ * bg: gradient top-80% white → transparent
+ * Logo: body/m Inter Medium, "(In)Media"
+ * Actions: language button (large text) + settings icon button
+ */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  height: 72px;
+  padding: 14px var(--space-16) 14px var(--space-32);
+  background: linear-gradient(
+    to bottom,
+    var(--background-primary) 0%,
+    var(--background-primary) 80%,
+    transparent 100%
+  );
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8) 0;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+  margin: 0;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+/* ── Icon buttons ── */
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-10);
+  border-radius: var(--radius-l);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--content-primary);
+  transition: background-color var(--transition-base);
+  min-width: 44px;
+  height: 44px;
+}
+
+.iconButton:hover {
+  background-color: var(--background-secondary);
+}
+
+/* ── Language text (large body/l style to match Figma "En" at 30px) ── */
+.languageText {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--content-primary);
+  letter-spacing: var(--letter-spacing-body-m);
+}

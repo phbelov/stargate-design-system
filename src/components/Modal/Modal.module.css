@@ -1,0 +1,201 @@
+/**
+ * Modal – Stargate Design System
+ * Figma Desktop node 7235:5936 | Mobile node 7235:6717
+ */
+
+/* ── Base (shared) ──────────────────────────────────────────────── */
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  background-color: var(--background-primary);
+  border-radius: var(--radius-xl);          /* Desktop: all 4 corners */
+  padding: var(--space-20) var(--space-24) var(--space-24);
+  width: 467px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ── Mobile overrides ───────────────────────────────────────────── */
+.mobile {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* top-only */
+  padding-bottom: 48px;
+  width: 100%;
+}
+
+/* ── Drag anchor (mobile) ── */
+.anchor {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 5px;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+/* ── Gradient overlays ──────────────────────────────────────────── */
+
+/* Desktop: top overlay — white → transparent going down (68px) */
+/* Mobile:  top overlay — white → transparent going down (84px) */
+.overlayTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  background: linear-gradient(
+    to bottom,
+    var(--background-primary) 0%,
+    var(--background-primary) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mobile .overlayTop {
+  height: 84px;
+  background: linear-gradient(
+    to bottom,
+    var(--background-primary) 0%,
+    var(--background-primary) 80%,
+    transparent 100%
+  );
+}
+
+/* Desktop: bottom overlay — transparent → white going up (84px) */
+/* Mobile:  bottom overlay — transparent → white going up (120px) */
+.overlayBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 84px;
+  background: linear-gradient(
+    to top,
+    var(--background-primary) 0%,
+    var(--background-primary) 20%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mobile .overlayBottom {
+  height: 120px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Desktop title: Heading/M (24px) */
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-heading);
+  font-size: var(--size-heading-m);
+  line-height: var(--line-height-heading-m);
+  letter-spacing: var(--letter-spacing-heading-m);
+  color: var(--content-primary);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* Mobile title: Heading/XL (40px) */
+.titleMobile {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-heading);
+  font-size: var(--size-heading-xl);
+  line-height: var(--line-height-heading-xl);
+  letter-spacing: var(--letter-spacing-heading-xl);
+  color: var(--content-primary);
+  margin: 0;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+/* ── Content ─────────────────────────────────────────────────────── */
+.content {
+  flex: 1;
+  width: 100%;
+  min-height: 100px;
+}
+
+.contentPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-primary);
+  border-radius: var(--radius-m);
+  height: 200px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.contentLabel {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-secondary);
+}
+
+/* ── Button row ──────────────────────────────────────────────────── */
+
+/* Desktop: horizontal flex */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile: vertical stack */
+.actionsMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Home Indicator (mobile) ─────────────────────────────────────── */
+.homeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  z-index: 2;
+}
+
+.homeIndicatorPill {
+  width: 144px;
+  height: 5px;
+  border-radius: 100px;
+  background-color: var(--content-primary, #292929);
+}

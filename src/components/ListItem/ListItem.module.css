@@ -1,0 +1,81 @@
+/**
+ * ListItem – Stargate Design System
+ * Figma: Stargate Components → List Item (node 4115:11722)
+ *
+ * height: 44px, gap: 8px, padding: 8px 0 (vertical only)
+ * Hover bg: rgba(41,41,41,0.08) with --radius-m border-radius
+ */
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: 44px;
+  padding: var(--space-8) 12px;
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+
+/* ── Hover background (extends 12px beyond the 12px padding) ── */
+.bg {
+  position: absolute;
+  inset: 0 -12px;
+  border-radius: var(--radius-m);
+  background-color: transparent;
+  transition: background-color var(--transition-base);
+  z-index: 0;
+}
+
+.item:hover .bg,
+.hover .bg {
+  background-color: var(--background-secondary);
+}
+
+.pressed .bg {
+  background-color: var(--background-secondary);
+  opacity: 0.72;
+}
+
+.active .bg {
+  background-color: var(--background-secondary);
+}
+
+/* ── Label ─────────────────────────────────────────────────────── */
+.label {
+  flex: 1 0 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Leading slot ───────────────────────────────────────────────── */
+.leading {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--content-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Trailing slot ──────────────────────────────────────────────── */
+.trailing {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--content-primary);
+  position: relative;
+  z-index: 1;
+}

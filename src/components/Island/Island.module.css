@@ -1,0 +1,84 @@
+/**
+ * Island – Stargate Design System
+ * Figma: Stargate Components → Island (With Background=Yes)
+ * bg: #ededed (--background-secondary-plain), px: 24px, pt: 20px, pb: 24px
+ * border-radius: --radius-l (24px), gap: 16px between heading and content
+ */
+
+.island {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  width: 100%;
+}
+
+.withBg {
+  background-color: var(--background-secondary-plain);
+  border-radius: var(--radius-l);
+  padding: var(--space-20) var(--space-24) var(--space-24);
+}
+
+.noBg {
+  padding: var(--space-20) 0 var(--space-24);
+}
+
+/* ── Heading ── */
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-heading);
+  font-size: var(--size-heading-m);
+  line-height: var(--line-height-heading-m);
+  letter-spacing: var(--letter-spacing-heading-m);
+  color: var(--content-primary);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.subtitle {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+  margin: 0;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+/* ── Content ── */
+.content {
+  width: 100%;
+  flex: 1;
+}
+
+.contentPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-primary);
+  border-radius: var(--radius-m);
+  height: 200px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.contentLabel {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-secondary);
+}

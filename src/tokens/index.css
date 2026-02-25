@@ -1,0 +1,43 @@
+/**
+ * Stargate Design System – Design Tokens
+ *
+ * Three-tier architecture:
+ *   Base       → raw color primitives (6 modes: light, dark, g42-light, g42-dark, inception, pmo)
+ *   Interface  → semantic aliases that reference Base (2 modes: light, dark)
+ *   Typography → font tokens (4 modes: inter, noto-sans, sf-pro, diatype)
+ *
+ * Figma sources:
+ *   - Stargate Base: https://www.figma.com/design/5fsUmsJcZztFCbly6bziM9/Stargate-Base
+ *   - Stargate Components: https://www.figma.com/design/Skpva9mqnLcDkCmpACtEwL/Stargate-Components
+ *
+ * Mode switching:
+ *   Set data-base-mode, data-interface-mode, data-typography-mode on an
+ *   ancestor element (Storybook does this via the toolbar decorator).
+ */
+
+/* ── Web Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap');
+
+/* ── Token Collections ── */
+@import './base.css';
+@import './interface.css';
+@import './typography.css';
+
+/* ================================================================
+   GLOBAL RESET / BASE
+   ================================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  color: var(--content-primary);
+  background-color: var(--background-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

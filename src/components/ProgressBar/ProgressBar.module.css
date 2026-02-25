@@ -1,0 +1,99 @@
+/**
+ * ProgressBar – Stargate Design System
+ *
+ * Figma: Stargate Components → Progress Bar section
+ *
+ * Line variant:
+ *   height: 8px, border-radius: --radius-xxs (4px)
+ *   track bg: --background-secondary  (rgba(41,41,41,0.08))
+ *   indicator: --interactive-filled-primary-brand-default (#a964f7)
+ *
+ * Circle variant:
+ *   Implemented as an SVG circle with stroke-dashoffset animation.
+ *   Sizes available: 24px (default from Figma)
+ *   Default style: purple stroke
+ *   Inverted style: white stroke (for dark backgrounds)
+ */
+
+/* ── Line ─────────────────────────────────────────────────────── */
+.line {
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-xxs);
+  background-color: var(--background-secondary);
+  overflow: hidden;
+  position: relative;
+}
+
+.lineIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: var(--radius-xxs);
+  background-color: var(--interactive-filled-primary-brand-default);
+  transition: width 0.3s ease;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Inverted line track + indicator */
+.lineInverted {
+  background-color: rgba(255, 255, 255, 0.20);
+}
+
+.lineInverted .lineIndicator {
+  background-color: #ffffff;
+}
+
+/* ── Circle ───────────────────────────────────────────────────── */
+.circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.circleSvg {
+  transform: rotate(-90deg);  /* Start arc from top */
+}
+
+.circleTrack {
+  fill: none;
+  stroke: var(--background-secondary);
+  stroke-linecap: round;
+}
+
+.circleIndicator {
+  fill: none;
+  stroke: var(--interactive-filled-primary-brand-default);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Inverted circle */
+.circleInverted .circleTrack {
+  stroke: rgba(255, 255, 255, 0.20);
+}
+
+.circleInverted .circleIndicator {
+  stroke: #ffffff;
+}
+
+/* ── Wrapper for label ────────────────────────────────────────── */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-xs);
+  line-height: var(--line-height-body-xs);
+  color: var(--content-secondary);
+}

@@ -1,0 +1,29 @@
+/**
+ * Tooltip – Stargate Design System
+ * Figma: Stargate Components → Tooltip
+ * bg: --background-status-neutral (#292929), px: 20px, py: 16px, border-radius: --radius-m (16px)
+ * Text: body/s, 14px/20px, color: --content-inverted-primary (#ededed)
+ */
+
+.tooltip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-16) var(--space-20);
+  background-color: var(--background-status-neutral);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  max-width: 280px;
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-s);
+  line-height: var(--line-height-body-s);
+  letter-spacing: var(--letter-spacing-body-s);
+  color: var(--content-inverted-primary);
+  margin: 0;
+  white-space: pre-wrap;
+  flex: 1;
+}

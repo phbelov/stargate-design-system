@@ -1,0 +1,154 @@
+/**
+ * ButtonIcon – Stargate Design System
+ * Figma: Stargate Components → Button Icon (node 2001:18065)
+ */
+
+/* ── Base ─────────────────────────────────────────────────────── */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition:
+    background-color var(--transition-base),
+    opacity var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(169, 100, 247, 0.4);
+}
+
+/* ── Sizes ─────────────────────────────────────────────────────── */
+
+/* M: 44×44px, 10px padding, 24px icon, 24px border-radius */
+.sizeM {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: var(--radius-l);
+}
+
+/* L: 60×60px, 16px padding, 28px icon, 32px border-radius */
+.sizeL {
+  width: 60px;
+  height: 60px;
+  padding: 16px;
+  border-radius: var(--radius-xl);
+}
+
+/* Loading: slightly larger padding to keep icon centred */
+.sizeL.loading {
+  padding: 18px;
+}
+
+/* ── Priorities ─────────────────────────────────────────────────── */
+
+.primary {
+  background-color: var(--interactive-filled-primary-default);
+  color: var(--content-inverted-primary);
+}
+.primary:hover:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-primary-hover);
+}
+.primary:active:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-primary-pressed);
+}
+
+.primaryBrand {
+  background-color: var(--interactive-filled-primary-brand-default);
+  color: #ffffff;
+}
+.primaryBrand:hover:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-primary-brand-hover);
+}
+.primaryBrand:active:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-primary-brand-pressed);
+}
+
+.secondary {
+  background-color: var(--interactive-filled-secondary-default);
+  color: var(--content-primary);
+}
+.secondary:hover:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-secondary-hover);
+}
+.secondary:active:not(.disabled):not(.loading) {
+  background-color: var(--interactive-filled-secondary-pressed);
+}
+
+.secondaryAlternative {
+  background-color: var(--background-primary, #ffffff);
+  color: var(--content-primary);
+}
+.secondaryAlternative:hover:not(.disabled):not(.loading) {
+  background-color: rgba(255, 255, 255, 0.48);
+}
+.secondaryAlternative:active:not(.disabled):not(.loading) {
+  background-color: rgba(255, 255, 255, 0.48);
+}
+
+/* Tertiary: transparent bg, hover via absolute .tertiaryBg child */
+.tertiary {
+  background-color: transparent;
+  color: var(--content-primary);
+}
+
+.tertiaryBg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: transparent;
+  transition: background-color var(--transition-base);
+}
+.tertiary:hover:not(.disabled):not(.loading) .tertiaryBg {
+  background-color: var(--interactive-filled-secondary-default);
+}
+.tertiary:active:not(.disabled):not(.loading) .tertiaryBg {
+  background-color: var(--interactive-filled-secondary-hover);
+}
+
+.destructive {
+  background-color: var(--background-status-negative);
+  color: #ffffff;
+}
+/* Destructive: Figma shows no hover colour change */
+
+/* ── States ─────────────────────────────────────────────────────── */
+
+.disabled {
+  background-color: var(--interactive-filled-secondary-default) !important;
+  color: var(--content-secondary);
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.loading {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Icon & loader wrappers ─────────────────────────────────────── */
+.iconWrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.loaderWrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

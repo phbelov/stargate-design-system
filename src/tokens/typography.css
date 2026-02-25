@@ -1,0 +1,82 @@
+/**
+ * Stargate Design System — Typography Collection
+ *
+ * Font-related tokens. Switching the typography mode changes the font family
+ * while keeping sizes, line-heights, weights, and letter-spacing consistent.
+ *
+ * Modes: inter · noto-sans · sf-pro · diatype
+ * Switch via: data-typography-mode="<mode>" on an ancestor element.
+ */
+
+/* ================================================================
+   INTER (default)
+   ================================================================ */
+:root,
+[data-typography-mode="inter"] {
+  --font-family: 'Inter', sans-serif;
+  --font-weight-body:    500;     /* Medium  */
+  --font-weight-heading: 600;     /* SemiBold */
+
+  /* ── Body sizes ── */
+  --size-body-xs: 12px;
+  --size-body-s:  14px;
+  --size-body-m:  16px;
+  --size-body-l:  18px;
+
+  /* ── Heading sizes ── */
+  --size-heading-xs: 18px;
+  --size-heading-s:  20px;
+  --size-heading-m:  24px;
+  --size-heading-l:  28px;
+  --size-heading-xl: 40px;
+
+  /* ── Body line-heights ── */
+  --line-height-body-xs: 16px;
+  --line-height-body-s:  20px;
+  --line-height-body-m:  24px;
+  --line-height-body-l:  28px;
+
+  /* ── Heading line-heights ── */
+  --line-height-heading-xs: 24px;
+  --line-height-heading-s:  28px;
+  --line-height-heading-m:  32px;
+  --line-height-heading-l:  36px;
+  --line-height-heading-xl: 48px;
+
+  /* ── Body letter-spacing ── */
+  --letter-spacing-body-xs: -0.01px;
+  --letter-spacing-body-s:  -0.01px;
+  --letter-spacing-body-m:  -0.02px;
+  --letter-spacing-body-l:  -0.02px;
+
+  /* ── Heading letter-spacing ── */
+  --letter-spacing-heading-m:  -0.3px;
+  --letter-spacing-heading-l:  -0.4px;
+  --letter-spacing-heading-xl: -0.5px;
+}
+
+/* ================================================================
+   NOTO SANS
+   Google font — loaded alongside Inter via the Google Fonts import.
+   ================================================================ */
+[data-typography-mode="noto-sans"] {
+  --font-family: 'Noto Sans', sans-serif;
+}
+
+/* ================================================================
+   SF PRO
+   Apple system font — uses the native font stack.
+   Available on macOS / iOS; falls back to system-ui elsewhere.
+   ================================================================ */
+[data-typography-mode="sf-pro"] {
+  --font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+}
+
+/* ================================================================
+   DIATYPE
+   Dinamo commercial font — must be installed locally.
+   Falls back to Inter if not available.
+   ================================================================ */
+[data-typography-mode="diatype"] {
+  --font-family: 'Diatype', 'Inter', sans-serif;
+}

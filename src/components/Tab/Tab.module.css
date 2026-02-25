@@ -1,0 +1,62 @@
+/**
+ * Tab – Stargate Design System
+ * Figma: Stargate Components → Tab (node 6911:2455)
+ *
+ * Active  state node: 4001:80125  → border-bottom: 2px solid var(--interactive-outlined-focus)
+ * Default state node: 4001:80126  → no border
+ * Hover   state node: 6011:6707   → border-bottom: 2px solid var(--interactive-outlined-hover)
+ */
+
+.tab {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 4px 0 12px;   /* top:4px, bottom:12px — leaves room for the underline */
+
+  /* Typography — Body/M */
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+
+  /* Default appearance */
+  color: var(--content-secondary);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color var(--transition-base),
+    border-bottom-color var(--transition-base);
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover — faint underline, text stays secondary */
+.tab:hover,
+.hover {
+  color: var(--content-primary);
+  border-bottom-color: var(--interactive-outlined-hover, rgba(41, 41, 41, 0.32));
+}
+
+/* Pressed — same as hover */
+.pressed {
+  color: var(--content-primary);
+  border-bottom-color: var(--interactive-outlined-hover, rgba(41, 41, 41, 0.32));
+}
+
+/* Active — solid underline, primary text */
+.active {
+  color: var(--content-primary);
+  border-bottom-color: var(--interactive-outlined-focus, #292929);
+}
+
+/* Active overrides hover (when state=active AND css :hover) */
+.active:hover {
+  border-bottom-color: var(--interactive-outlined-focus, #292929);
+}

@@ -1,0 +1,157 @@
+/**
+ * Stargate Design System — Base Collection
+ *
+ * Raw colour primitives matching Figma variable collections 1-to-1.
+ * Groups: Brand · Brand Light · Grey · Charcoal · White · Black · Red · Green · Orange
+ *
+ * Modes: light · dark · g42-light · g42-dark · pmo
+ * Switch via: data-base-mode="<mode>" on an ancestor element.
+ *
+ * Charcoal, White, Black, and status colours are mode-independent.
+ * Brand, Brand Light, and Grey vary per mode.
+ */
+
+/* ================================================================
+   MODE-INDEPENDENT TOKENS
+   Same values in every mode.
+   ================================================================ */
+:root {
+  /* ── Charcoal ── */
+  --base-charcoal-100: #292929;
+  --base-charcoal-60:  rgba(41, 41, 41, 0.60);
+  --base-charcoal-32:  rgba(41, 41, 41, 0.32);
+  --base-charcoal-24:  rgba(41, 41, 41, 0.24);
+  --base-charcoal-16:  rgba(41, 41, 41, 0.16);
+  --base-charcoal-8:   rgba(41, 41, 41, 0.08);
+  --base-charcoal-4:   rgba(41, 41, 41, 0.04);
+  --base-charcoal-0:   rgba(41, 41, 41, 0);
+
+  /* ── White / Black ── */
+  --base-white: #ffffff;
+  --base-black: #121212;
+
+  /* ── Status ── */
+  --base-red:    #b5231b;
+  --base-green:  #126e40;
+  --base-orange: #b36b00;
+}
+
+/* ================================================================
+   LIGHT  (default)
+   ================================================================ */
+:root,
+[data-base-mode="light"] {
+  /* ── Brand ── */
+  --base-brand-100: #a964f7;
+  --base-brand-40:  rgba(169, 100, 247, 0.40);
+  --base-brand-24:  rgba(169, 100, 247, 0.24);
+
+  /* ── Brand Light ── */
+  --base-brand-light-100: #e6d0ff;
+  --base-brand-light-0:   rgba(230, 208, 255, 0);
+
+  /* ── Grey ── */
+  --base-grey-100: #ededed;
+  --base-grey-48:  rgba(237, 237, 237, 0.48);
+  --base-grey-20:  rgba(237, 237, 237, 0.20);
+  --base-grey-12:  rgba(237, 237, 237, 0.12);
+  --base-grey-8:   rgba(237, 237, 237, 0.08);
+  --base-grey-4:   rgba(237, 237, 237, 0.04);
+  --base-grey-0:   rgba(237, 237, 237, 0);
+}
+
+/* ================================================================
+   DARK
+   Only Brand Light differs from Light.
+   ================================================================ */
+[data-base-mode="dark"] {
+  /* ── Brand ── */
+  --base-brand-100: #a964f7;
+  --base-brand-40:  rgba(169, 100, 247, 0.40);
+  --base-brand-24:  rgba(169, 100, 247, 0.24);
+
+  /* ── Brand Light ── */
+  --base-brand-light-100: #707089;
+  --base-brand-light-0:   rgba(112, 112, 137, 0);
+
+  /* ── Grey ── */
+  --base-grey-100: #ededed;
+  --base-grey-48:  rgba(237, 237, 237, 0.48);
+  --base-grey-20:  rgba(237, 237, 237, 0.20);
+  --base-grey-12:  rgba(237, 237, 237, 0.12);
+  --base-grey-8:   rgba(237, 237, 237, 0.08);
+  --base-grey-4:   rgba(237, 237, 237, 0.04);
+  --base-grey-0:   rgba(237, 237, 237, 0);
+}
+
+/* ================================================================
+   G42 LIGHT
+   Teal brand accent, warm-tinted grey.
+   ================================================================ */
+[data-base-mode="g42-light"] {
+  /* ── Brand ── */
+  --base-brand-100: #00d2aa;
+  --base-brand-40:  rgba(0, 210, 170, 0.40);
+  --base-brand-24:  rgba(0, 210, 170, 0.24);
+
+  /* ── Brand Light ── */
+  --base-brand-light-100: #8bd8ca;
+  --base-brand-light-0:   rgba(139, 216, 202, 0);
+
+  /* ── Grey ── */
+  --base-grey-100: #f7f4f1;
+  --base-grey-48:  rgba(247, 244, 241, 0.48);
+  --base-grey-20:  rgba(247, 244, 241, 0.20);
+  --base-grey-12:  rgba(247, 244, 241, 0.12);
+  --base-grey-8:   rgba(247, 244, 241, 0.08);
+  --base-grey-4:   rgba(247, 244, 241, 0.04);
+  --base-grey-0:   rgba(247, 244, 241, 0);
+}
+
+/* ================================================================
+   G42 DARK
+   Teal brand accent, warm-tinted grey, dark Brand Light.
+   ================================================================ */
+[data-base-mode="g42-dark"] {
+  /* ── Brand ── */
+  --base-brand-100: #00d2aa;
+  --base-brand-40:  rgba(0, 210, 170, 0.40);
+  --base-brand-24:  rgba(0, 210, 170, 0.24);
+
+  /* ── Brand Light ── */
+  --base-brand-light-100: #037862;
+  --base-brand-light-0:   rgba(3, 120, 98, 0);
+
+  /* ── Grey ── */
+  --base-grey-100: #f7f4f1;
+  --base-grey-48:  rgba(247, 244, 241, 0.48);
+  --base-grey-20:  rgba(247, 244, 241, 0.20);
+  --base-grey-12:  rgba(247, 244, 241, 0.12);
+  --base-grey-8:   rgba(247, 244, 241, 0.08);
+  --base-grey-4:   rgba(247, 244, 241, 0.04);
+  --base-grey-0:   rgba(247, 244, 241, 0);
+}
+
+/* ================================================================
+   PMO
+   Golden / yellow brand accent.
+   ================================================================ */
+[data-base-mode="pmo"] {
+  /* ── Brand ── */
+  --base-brand-100: #f6bc2f;
+  --base-brand-40:  rgba(246, 188, 47, 0.40);
+  --base-brand-24:  rgba(246, 188, 47, 0.24);
+
+  /* ── Brand Light ── */
+  --base-brand-light-100: #ffe9b3;
+  --base-brand-light-0:   rgba(255, 233, 179, 0);
+
+  /* ── Grey ── */
+  --base-grey-100: #f5f5f2;
+  --base-grey-48:  rgba(245, 245, 242, 0.48);
+  --base-grey-20:  rgba(245, 245, 242, 0.20);
+  --base-grey-12:  rgba(245, 245, 242, 0.12);
+  --base-grey-8:   rgba(245, 245, 242, 0.08);
+  --base-grey-4:   rgba(245, 245, 242, 0.04);
+  --base-grey-0:   rgba(245, 245, 242, 0);
+}

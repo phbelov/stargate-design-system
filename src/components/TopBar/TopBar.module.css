@@ -1,0 +1,104 @@
+/**
+ * TopBar – Stargate Design System
+ * Figma: Stargate Components → Top Bar
+ * height: 72px, px: 14px, py: 16px, width: 440px (mobile)
+ * bg: gradient top-80% white → transparent
+ * Title: body/m, centered, absolute positioned
+ * Leading + Trailing: icon buttons 44x44px, rounded-l
+ */
+
+.topBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  padding: var(--space-16) var(--space-16);
+  width: 440px;
+  max-width: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--background-primary) 0%,
+    var(--background-primary) 80%,
+    transparent 100%
+  );
+}
+
+/* ── Title block (absolutely centred) ── */
+.titleBlock {
+  position: absolute;
+  left: 58px;
+  right: 58px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.subtitle {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-s);
+  line-height: var(--line-height-body-s);
+  letter-spacing: var(--letter-spacing-body-s);
+  color: var(--content-secondary);
+  margin: 0;
+}
+
+/* ── Icon buttons ── */
+.iconButton {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-l);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--content-primary);
+  transition: background-color var(--transition-base);
+  padding: var(--space-10);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.iconButton:nth-of-type(1) { left: var(--space-16); }
+
+.iconButton:hover {
+  background-color: var(--background-secondary);
+}
+
+/* ── Trailing row ── */
+.trailingRow {
+  position: absolute;
+  right: var(--space-16);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.trailingRow .iconButton {
+  position: static;
+  transform: none;
+}

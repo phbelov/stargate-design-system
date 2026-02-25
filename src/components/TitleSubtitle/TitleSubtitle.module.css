@@ -1,0 +1,52 @@
+/**
+ * TitleSubtitle – Stargate Design System
+ * Figma: Stargate Components → Title + Subtitle
+ * Size L → heading/xl (40px / 48px, letter-spacing -0.5px)
+ * Size M → heading/m  (24px / 32px, letter-spacing -0.3px)
+ */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  color: var(--content-primary);
+  width: 100%;
+}
+
+.sizeL { gap: var(--space-8); }
+.sizeM { gap: var(--space-4); }
+
+/* ── Title ── */
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-heading);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.sizeL .title {
+  font-size: var(--size-heading-xl);
+  line-height: var(--line-height-heading-xl);
+  letter-spacing: var(--letter-spacing-heading-xl);
+}
+
+.sizeM .title {
+  font-size: var(--size-heading-m);
+  line-height: var(--line-height-heading-m);
+  letter-spacing: var(--letter-spacing-heading-m);
+}
+
+/* ── Subtitle ── */
+.subtitle {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  margin: 0;
+  width: 100%;
+  white-space: pre-wrap;
+  color: var(--content-primary);
+}

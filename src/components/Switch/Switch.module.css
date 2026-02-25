@@ -1,0 +1,121 @@
+/**
+ * Switch (Switcher) – Stargate Design System
+ *
+ * Figma: Stargate Components → Switcher section
+ * Dimensions (from Figma):
+ *   Total width: 52px, height: 24px
+ *   border-radius: --radius-s (12px)
+ *   border: 2px solid --interactive-outlined-default
+ *
+ * Active:   bg --interactive-filled-primary-default (#292929), thumb on right
+ *           padding: 4px 4px 4px 24px  →  thumb (24×16) pushed right
+ * Inactive: bg transparent, thumb on left
+ *           padding: 4px 24px 4px 4px  →  thumb pushed left
+ *
+ * Thumb: width 24px, height 16px, border-radius 100px,
+ *        bg --content-inverted-primary (#ededed) when active
+ *        bg --interactive-outlined-default when inactive
+ */
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.nativeInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Track */
+.track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 52px;
+  height: 24px;
+  border-radius: var(--radius-s);
+  border: 2px solid var(--interactive-outlined-default);
+  background-color: transparent;
+  box-sizing: border-box;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+  overflow: hidden;
+}
+
+/* Thumb */
+.thumb {
+  position: absolute;
+  left: 2px; /* 2px = matches top/bottom gap ((24-4border-16thumb)/2=2px) */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 16px;
+  border-radius: 100px;
+  background-color: var(--interactive-outlined-default);
+  transition:
+    left var(--transition-base),
+    background-color var(--transition-base);
+  flex-shrink: 0;
+}
+
+/* ── Checked / Active ─────────────────────────────────────────── */
+.checked .track {
+  background-color: var(--interactive-filled-primary-default);
+  border-color: var(--interactive-filled-primary-default);
+}
+
+.checked .thumb {
+  left: 22px; /* inner(48) - right-gap(2) - thumb-width(24) = 22, matches left-gap of 2px */
+  background-color: var(--content-inverted-primary);
+}
+
+/* ── Hover ────────────────────────────────────────────────────── */
+.wrapper:hover:not(.disabled) .track {
+  border-color: var(--interactive-outlined-hover);
+}
+
+.wrapper:hover:not(.disabled).checked .track {
+  background-color: var(--interactive-filled-primary-hover);
+  border-color: var(--interactive-filled-primary-hover);
+}
+
+/* ── Pressed ──────────────────────────────────────────────────── */
+.wrapper:active:not(.disabled) .track {
+  box-shadow: 0 0 0 3px rgba(41, 41, 41, 0.12);
+}
+
+/* ── Focus ────────────────────────────────────────────────────── */
+.nativeInput:focus-visible ~ .track {
+  box-shadow: 0 0 0 3px rgba(169, 100, 247, 0.4);
+}
+
+/* ── Disabled ─────────────────────────────────────────────────── */
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ── Label ────────────────────────────────────────────────────── */
+.label {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+}

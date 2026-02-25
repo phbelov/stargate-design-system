@@ -1,0 +1,190 @@
+/**
+ * TextField – Stargate Design System
+ *
+ * Figma: Stargate Components → Text Field section
+ * States: Default, Hover, Pressed, Focus, Typing, Typing/Multi-Line,
+ *         Error, Success, Filled, Disabled
+ *
+ * Key measurements from Figma:
+ *   background: --background-primary (white)
+ *   border:     2px solid --interactive-outlined-default (rgba(41,41,41,0.24))
+ *   border-radius: --radius-s (12px)
+ *   padding: 16px left, 8px right, 16px top/bottom
+ *   min-height: 60px   (single-line)
+ *   height default: 128px (expanded / multi-line)
+ *   font: Inter 500, 16px / 24px, letter-spacing -0.02px
+ */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 340px;
+}
+
+.field {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-8);
+  background-color: var(--background-primary);
+  border: 2px solid var(--interactive-outlined-default);
+  border-radius: var(--radius-s);
+  padding: var(--space-16) var(--space-8) var(--space-16) var(--space-16);
+  min-height: 60px;
+  width: 100%;
+  position: relative;
+  transition:
+    border-color var(--transition-base),
+    background-color var(--transition-base);
+  cursor: text;
+  box-sizing: border-box;
+}
+
+/* ── Multi-line / expanded ────────────────────────────────────── */
+.multiLine {
+  min-height: 128px;
+  align-items: flex-start;
+}
+
+/* ── State: Hover ─────────────────────────────────────────────── */
+.field:hover:not(.disabled):not(.error):not(.success):not(.focus) {
+  border-color: var(--interactive-outlined-hover);
+}
+
+/* ── State: Pressed ───────────────────────────────────────────── */
+.pressed {
+  border-color: var(--interactive-outlined-pressed);
+}
+
+/* ── State: Focus / Typing ────────────────────────────────────── */
+.field.focus {
+  border-color: var(--interactive-outlined-focus);
+}
+
+/* ── State: Error ─────────────────────────────────────────────── */
+.error {
+  border-color: var(--background-status-negative);
+}
+
+/* ── State: Success ───────────────────────────────────────────── */
+.success {
+  border-color: var(--background-status-positive);
+}
+
+/* ── State: Disabled ──────────────────────────────────────────── */
+.disabled {
+  background-color: var(--background-secondary);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Content area ─────────────────────────────────────────────── */
+.content {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Label (floats above input when provided) */
+.label {
+  display: block;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-xs);
+  line-height: var(--line-height-body-xs);
+  letter-spacing: var(--letter-spacing-body-xs);
+  color: var(--content-secondary);
+  margin-bottom: var(--space-2);
+  transition: color var(--transition-base);
+  pointer-events: none;
+}
+
+.error .label {
+  color: var(--content-status-negative);
+}
+
+.success .label {
+  color: var(--content-status-positive);
+}
+
+/* ── Native input (visible, styled to match design) ───────────── */
+.nativeInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+  caret-color: var(--content-primary);
+  /* Remove native date/time styling */
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.nativeInput::placeholder {
+  color: var(--content-secondary);
+  opacity: 1;
+}
+
+/* Textarea specifics */
+textarea.nativeInput {
+  resize: none;
+  height: 100%;
+  min-height: 60px;
+  overflow-y: auto;
+}
+
+/* Disabled input */
+.disabled .nativeInput {
+  cursor: not-allowed;
+  color: var(--content-secondary);
+}
+
+/* ── Leading slot (icon left of text) ────────────────────────── */
+.leading {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.leadingIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--content-secondary);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Trailing slot (action button right of text) ──────────────── */
+.trailing {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Helper / error / success caption below field ─────────────── */
+.caption {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-xs);
+  line-height: var(--line-height-body-xs);
+  letter-spacing: var(--letter-spacing-body-xs);
+  color: var(--content-secondary);
+  padding-left: var(--space-4);
+}
+
+.captionError {
+  color: var(--content-status-negative);
+}
+
+.captionSuccess {
+  color: var(--content-status-positive);
+}

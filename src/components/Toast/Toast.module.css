@@ -1,0 +1,42 @@
+/**
+ * Toast – Stargate Design System
+ * Figma: Stargate Components → Toast
+ * px: 24px, py: 20px, border-radius: --radius-m (16px)
+ */
+
+.toast {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-20) var(--space-24);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+
+/* ── Tones ── */
+.positive { background-color: var(--background-status-positive); }
+.negative { background-color: var(--background-status-negative); }
+.neutral  { background-color: var(--background-status-neutral);  }
+
+/* ── Icon ── */
+.icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--content-inverted-primary);
+  width: 24px;
+  height: 24px;
+}
+
+/* ── Text ── */
+.text {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-inverted-primary);
+  margin: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+}

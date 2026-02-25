@@ -1,0 +1,24 @@
+/**
+ * Dropdown – Stargate Design System
+ * Figma: Stargate Components → Dropdown
+ * bg: white, border: 2px solid --interactive-outlined-default
+ * border-radius: --radius-l (24px), px: 20px, py: 8px
+ * Items rendered by ListItem component — no item-level overrides needed
+ */
+
+.dropdown {
+  background-color: var(--background-primary);
+  border: 2px solid var(--interactive-outlined-default);
+  border-radius: var(--radius-l);
+  padding: var(--space-8) var(--space-20);
+  min-width: 196px;
+  overflow: hidden;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}

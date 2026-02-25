@@ -1,0 +1,148 @@
+/**
+ * ListItemAdvanced – Stargate Design System
+ * Figma: Stargate Components → List Item Advanced (node 6111:6757)
+ *
+ * min-height: 60px, padding: 16px 0 (vertical only)
+ * border-bottom: 0.75px solid rgba(41,41,41,0.24) (except last item)
+ * Hover: ::before bg extends 12px beyond container with --radius-m
+ */
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-16);
+  min-height: 60px;
+  padding: var(--space-16) 0;
+  border-bottom: 0.75px solid rgba(41, 41, 41, 0.24);
+  cursor: pointer;
+}
+
+.last {
+  border-bottom: none;
+}
+
+/* ── Hover / Pressed background (extends -12px on left & right) ── */
+.bg {
+  position: absolute;
+  inset: 0 -12px;
+  border-radius: var(--radius-m);
+  background-color: transparent;
+  transition: background-color var(--transition-base);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.item:hover .bg,
+.hover .bg {
+  background-color: var(--background-secondary);
+}
+
+.pressed .bg {
+  background-color: var(--background-secondary);
+  opacity: 0.72;
+}
+
+/* ── Leading / Trailing slots ─────────────────────────────────── */
+.leading {
+  display: flex;
+  align-items: center;
+  padding-top: 2px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.trailing {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Content column ───────────────────────────────────────────── */
+.content {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Top row (source · date) ──────────────────────────────────── */
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-shrink: 0;
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+.topSource {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-s);
+  line-height: var(--line-height-body-s);
+  letter-spacing: var(--letter-spacing-body-s);
+  color: var(--content-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topDot,
+.topDate {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-s);
+  line-height: var(--line-height-body-s);
+  letter-spacing: var(--letter-spacing-body-s);
+  color: var(--content-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Title ────────────────────────────────────────────────────── */
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-primary);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* ── Bottom meta row ──────────────────────────────────────────── */
+.bottomRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+}
+
+.bottomMeta {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  letter-spacing: var(--letter-spacing-body-m);
+  color: var(--content-secondary);
+}
+
+.bottomDot {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: var(--size-body-m);
+  line-height: var(--line-height-body-m);
+  color: var(--content-secondary);
+  flex-shrink: 0;
+}
