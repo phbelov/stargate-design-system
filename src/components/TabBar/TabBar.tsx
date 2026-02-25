@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { Home, Calendar, Notification, Chat } from '@carbon/icons-react';
 import { Tab } from '../Tab/Tab';
 import styles from './TabBar.module.css';
@@ -35,7 +35,18 @@ export function TopTabBar({
   onTabChange,
   className,
 }: TopTabBarProps) {
-  const active = activeTab ?? tabs[0]?.value;
+  const isControlled = activeTab !== undefined;
+  const [internalActive, setInternalActive] = useState(tabs[0]?.value ?? '');
+  const active = isControlled ? activeTab : internalActive;
+
+  const handleTabChange = useCallback(
+    (value: string) => {
+      if (!isControlled) setInternalActive(value);
+      onTabChange?.(value);
+    },
+    [isControlled, onTabChange],
+  );
+
   return (
     <div className={[styles.topTabBar, className].filter(Boolean).join(' ')} role="tablist">
       {tabs.map(tab => (
@@ -43,7 +54,7 @@ export function TopTabBar({
           key={tab.value}
           label={tab.label}
           isActive={tab.value === active}
-          onClick={() => onTabChange?.(tab.value)}
+          onClick={() => handleTabChange(tab.value)}
         />
       ))}
     </div>
@@ -78,7 +89,18 @@ export function BottomTabBar({
   onTabChange,
   className,
 }: BottomTabBarProps) {
-  const active = activeTab ?? tabs[0]?.value;
+  const isControlled = activeTab !== undefined;
+  const [internalActive, setInternalActive] = useState(tabs[0]?.value ?? '');
+  const active = isControlled ? activeTab : internalActive;
+
+  const handleTabChange = useCallback(
+    (value: string) => {
+      if (!isControlled) setInternalActive(value);
+      onTabChange?.(value);
+    },
+    [isControlled, onTabChange],
+  );
+
   return (
     <div className={[styles.bottomTabBar, className].filter(Boolean).join(' ')} role="tablist">
       {tabs.map(tab => (
@@ -87,7 +109,7 @@ export function BottomTabBar({
           role="tab"
           aria-selected={tab.value === active}
           className={[styles.bottomTab, tab.value === active ? styles.bottomTabActive : ''].filter(Boolean).join(' ')}
-          onClick={() => onTabChange?.(tab.value)}
+          onClick={() => handleTabChange(tab.value)}
         >
           <span className={styles.bottomTabIcon}>{tab.icon}</span>
           <span className={styles.bottomTabLabel}>{tab.label}</span>
