@@ -74,9 +74,16 @@
 
 /* ================================================================
    DIATYPE
-   Dinamo commercial font — must be installed locally.
-   Falls back to Inter if not available.
+   ABC Diatype Variable (Dinamo) — self-hosted trial font.
    ================================================================ */
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('../assets/fonts/ABCDiatypeVariable-Trial.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 [data-typography-mode="diatype"] {
-  --font-family: 'Diatype', 'Inter', sans-serif;
+  --font-family: 'ABC Diatype', 'Inter', sans-serif;
 }
