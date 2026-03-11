@@ -86,4 +86,5 @@
 
 [data-typography-mode="diatype"] {
   --font-family: 'ABC Diatype', 'Inter', sans-serif;
+  --font-weight-heading: 500;     /* Medium – Diatype renders heavier */
 }
